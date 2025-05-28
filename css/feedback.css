@@ -1,0 +1,55 @@
+.page .content .formdivision {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height */
+}
+
+.formdivision {
+    width: 400px;
+    padding: 50px;
+    border: 1px solid #eeeeee;
+    border-radius: 5px;
+    background-color: #003b5b;
+}
+
+.formdivision h4 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: white;
+}
+
+.formdivision input,
+.formdivision select,
+.formdivision textarea {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+    font-family: 'Poppins', sans-serif;
+}
+
+.formdivision select {
+    background-color: white;
+    color: #333;
+}
+
+.formdivision .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.formdivision #submit {
+    border: none;
+    background-color: orangered;
+    color: white;
+    width: 200px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.formdivision #submit:hover {
+    background-color: #333333;
+}

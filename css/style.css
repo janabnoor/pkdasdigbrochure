@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background-color: #f8f6f6;
+  overflow: auto; /* ✅ Allow scrolling or visibility */
+  font-family: Arial, sans-serif;
+}
+
+
+.flipbook-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* if needed */
+}
+
+/* Default: flipbook fills 100% of screen (for mobile) */
+#flipbook {
+  width: 100%;
+  height: 100%;
+  background-color: #f0f4ef;
+  
+  position: relative;
+  z-index: 1; /* ensure flipbook doesn't cover arrows */
+}
+
+/* Pages inside flipbook */
+.page {
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  object-fit: contain; /* or use 'cover' depending on how you want it to fit */
+  display: block;
+
+  overflow: hidden;
+
+  z-index: 8;
+}
+
+
+
+
+.arrow {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+	z-index: 10; /* Ensure the arrows are above the flipbook */
+
+}
+
+#left-arrow {
+    left: 5px; /* Adjust to position the arrow overlapping the left side */
+     background-color: rgba(255, 255, 255, 0.5); /* Optional: improves visibility */
+    border-radius: 50%;
+}
+
+#right-arrow {
+    right: 5px; /* Adjust to position the arrow overlapping the right side */
+     background-color: rgba(255, 255, 255, 0.5); /* Optional: improves visibility */
+    border-radius: 50%;
+}
+
+
+
+.arrow img {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+/* Overlay message for landscape orientation */
+.landscape-warning {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000cc;
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+  z-index: 9999;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+
+
+
+/* DESKTOP: simulate mobile view */
+@media (min-width: 768px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #flipbook {
+    width: 375px;   /* Simulate iPhone screen */
+    height: 667px;
+    border: 1px solid #20106f;
+    border-radius: 0px;
+    box-shadow: 0 0 0px rgba(0,0,0,0.3);
+  }
+}
