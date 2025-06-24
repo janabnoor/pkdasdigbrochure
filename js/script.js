@@ -1,64 +1,65 @@
-  $(document).ready(function () {
-    const $flipbook = $('#flipbook');
-    const $leftArrow = $('#left-arrow');
-    const $rightArrow = $('#right-arrow');
+$(document).ready(function () {
+  const $flipbook = $('#flipbook');
+  const $leftArrow = $('#left-arrow');
+  const $rightArrow = $('#right-arrow');
 
-    //  1. Initialize the flipbook using turn.js
-    $flipbook.turn({
-      width: 800,
-      height: 2000,
-      autoCenter: true,
-      display: 'single', // Set to single page display
-
-
-    
-       
- 
-  duration: 4000,        // Slow page turn
-  elevation: 100,         // Optional visual effect
-
-       when: {
-            turning: function(event, page, view) {
-                document.getElementById('page-turn-sound').play();
-            }
-        }
-
-    });
-
-    //  2. Function to show/hide arrows based on current page
-    function updateArrows() {
-      const currentPage = $flipbook.turn('page');
-      const totalPages = $flipbook.turn('pages');
-
-      // Show/hide left arrow
-      if (currentPage <= 1) {
-        $leftArrow.hide();
-      } else {
-        $leftArrow.show();
-      }
-
-      // Show/hide right arrow
-      if (currentPage >= totalPages) {
-        $rightArrow.hide();
-      } else {
-        $rightArrow.show();
+  // 1. Initialize flipbook
+  $flipbook.turn({
+    width: 375,
+    height: 667,
+    autoCenter: true,
+    display: 'single',
+    elevation: 100,
+    duration: 4000,
+    when: {
+      turning: function (event, page, view) {
+        document.getElementById('page-turn-sound').play();
       }
     }
-
-    //  3. Bind arrow click events
-    $leftArrow.on('click', function () {
-      $flipbook.turn('previous');
-    });
-
-    $rightArrow.on('click', function () {
-      $flipbook.turn('next');
-    });
-
-    //  4. Run once when ready
-    updateArrows();
-
-    //  5. Bind to 'turned' event to update arrows every time
-    $flipbook.bind('turned', function (e, page) {
-      updateArrows();
-    });
   });
+
+  // 2. Update arrows
+  function updateArrows() {
+    const currentPage = $flipbook.turn('page');
+    const totalPages = $flipbook.turn('pages');
+
+    $leftArrow.toggle(currentPage > 1);
+    $rightArrow.toggle(currentPage < totalPages);
+  }
+
+  // 3. Bind arrow click
+  $leftArrow.on('click', () => {
+    $flipbook.turn('previous');
+  });
+
+  $rightArrow.on('click', () => {
+    $flipbook.turn('next');
+  });
+
+  // 4. Initial update
+  updateArrows();
+
+  // 5. On page turn
+  $flipbook.bind('turned', () => {
+    updateArrows();
+  });
+
+  // 6. Falling Leaf Effect
+  setInterval(() => {
+    const leaf = $('<img class="falling-leaf" src="./img/ballon.png">');
+    const size = 60 + Math.random() * 40;
+    const left = Math.random() * 100;
+
+    leaf.css({
+      left: left + 'vw',
+      width: size + 'px',
+      animationDuration: (5 + Math.random() * 5) + 's'
+    });
+
+    $('body').append(leaf);
+
+    setTimeout(() => {
+      leaf.remove();
+    }, 10000);
+  }, 800);
+});
