@@ -13,7 +13,7 @@ $(document).ready(function () {
         6: "Advocate Dr P. Krishna Das, Chancellor",
         7: "Message from the Chancellor",
         8: "Dr P. Krishna Kumar,Pro  Chancellor",
-        9: "Message from the Pro Chancellor",
+        9: "Message from the Pro Chancellor ",
         // Add more pages as needed
         29: "Page 29: Feedback form. Please share your thoughts with us."
     };
