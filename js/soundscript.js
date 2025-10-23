@@ -13,12 +13,12 @@ $(document).ready(function () {
         6: "Advocate Dr P. Krishna Das, Chancellor",
         7: "Message from the Chancellor",
         8: "Dr P. Krishna Kumar,Pro  Chancellor",
-        10: "Message from the Pro Chancellor ",
-        11: "Dr H. N. Nagaraja,Vice  Chancellor",
-        12: "Message from the Vice  Chancellor ",
-        13: "Dr. B. Anirudhan, Registrar ",
-        14: "Message from the Registrar ",
-        15: "B A Performing Arts(Hons), Duration 4 Years ",
+        9: "Message from the Pro Chancellor ",
+        10: "Dr H. N. Nagaraja,Vice  Chancellor",
+        11: "Message from the Vice  Chancellor ",
+        12: "Dr. B. Anirudhan, Registrar ",
+        13: "Message from the Registrar ",
+        14: "B A Performing Arts(Hons), Duration 4 Years ",
         // Add more pages as needed
         29: "Page 29: Feedback form. Please share your thoughts with us."
     };
